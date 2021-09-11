@@ -24,6 +24,7 @@ public class MapperTest {
 
     @Test
     public void test(){
+        System.out.println("test");
         System.out.println(signUpMapper);
         List<SignUp> signUps = signUpMapper.selectByExample(null);
         signUps.forEach(System.out::println);
