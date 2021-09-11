@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--
+    <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+    <properties resource="dbconfig.properties" />
+    <classPathEntry location="该jar包的位置\mysql\mysql-connector-java\8.0.15\mysql-connector-java-8.0.15.jar" />
+    -->
+
+    <context id="msqlTables" targetRuntime="MyBatis3">
+        <!-- 关闭注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!-- 配置数据库源 -->
+        <jdbcConnection connectionURL="jdbc:mysql://localhost:2599/shop"
+                        driverClass="com.mysql.cj.jdbc.Driver"
+                        password="521100"
+                        userId="root">
+            <!--property name="nullCatalogMeansCurrent" value="true"/-->
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- 配置生产bean位置 -->
+        <javaModelGenerator targetPackage="com.bytan.bean"
+                            targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+            <!-- 从数据库返回的值被清理前后的空格  -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- dao接口对应的映射文件位置 -->
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject=".\src\main\resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 生产dao接口的位置 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.bytan.dao"
+                             targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--数据库表-->
+        <table tableName="sign_up" domainObjectName="SignUp"></table>
+    </context>
+</generatorConfiguration>
