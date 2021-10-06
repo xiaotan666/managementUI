@@ -87,6 +87,11 @@ public class PageController {
         }
     }
 
+    /**
+     * 检测用户名是否可用
+     * @param username
+     * @return
+     */
     @RequestMapping("/checkName")
     @ResponseBody
     public boolean checkName(@RequestParam("username") String username){

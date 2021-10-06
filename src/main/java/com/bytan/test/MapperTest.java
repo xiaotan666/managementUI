@@ -1,7 +1,6 @@
 package com.bytan.test;
 
 import com.bytan.bean.SignUp;
-import com.bytan.bean.SignUpExample;
 import com.bytan.dao.SignUpMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
